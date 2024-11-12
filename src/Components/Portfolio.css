@@ -1,0 +1,22 @@
+.portfolio {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .portfolio-items {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .portfolio-item {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 30%;
+  }
+  
+  .portfolio-item h2 {
+    margin: 0;
+  }
+  

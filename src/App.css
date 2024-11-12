@@ -1,0 +1,6 @@
+.App {
+  font-family: var(--framer-blockquote-font-family, var(--framer-link-font-family, var(--framer-font-family, Inter, Inter Placeholder, sans-serif)));
+  margin: 0;
+  padding: 0;
+}
+/* Global Styles */

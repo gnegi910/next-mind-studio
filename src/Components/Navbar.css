@@ -1,0 +1,202 @@
+/* Basic Navbar Styles */
+.navbar {
+  position: fixed; /* Fixed position to stay at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure navbar stays on top */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem; /* Adjusted padding */
+  color: white;
+  transition: background-color 0.3s ease;
+  
+  /* Background image with optional gradient overlay */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 128, 0.1)), 
+    url('../Photos/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  box-sizing: border-box;
+  max-height: 120px; /* Limit height */
+  overflow: hidden;
+}
+
+/* Top Section with 3 Columns */
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Navigation Links */
+.navbar-links {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+  transform: translateX(5px); /* Subtle slide effect */
+}
+
+/* Button Section */
+.navbar-button {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Footer button style */
+/* Footer button style */
+.footer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  padding: 10px 20px; /* Add some padding for better button size */
+}
+
+/* Circle effect on hover/active */
+.footer-button::before {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  content: "";
+  background-color: navy;
+  border-radius: 50%;
+  left: -130px; /* Start the circle off-screen on the left */
+  top: 50%;
+  transform: translateY(-50%); /* Center it vertically */
+  transition: left 0.3s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+  mix-blend-mode: difference;
+  opacity: 0; /* Start hidden */
+}
+
+/* Hover state: Circle moves from left to right */
+.footer-button:hover::before {
+  left: 0; /* Move the circle to the left side of the button */
+  width: 130px; /* Keep the circle's size */
+  height: 130px; /* Keep the circle's size */
+  opacity: 1; /* Make the circle visible */
+  transform: translateY(-50%) scale(2); /* Scale the circle */
+  border-radius: 0; /* Change the border radius to 0 to make it cover the whole button */
+}
+
+/* Active state - the circle covers the whole button */
+.footer-button.active::before {
+  transform: translateY(-50%); /* Keep vertically centered */
+  left: 0; /* Move the circle to the left edge of the button */
+  width: 100%; /* Expand the circle to cover the entire button */
+  background-color: blue;
+  height: 100%; /* Ensure the circle expands to cover the whole button */
+  opacity: 1; /* Make the circle visible */
+}
+
+/* Button active state */
+.footer-button:active {
+  transform: translate(5px, 5px); /* Button click effect */
+  transition-duration: .3s;
+  border: 3px black;
+}
+
+
+/* Mobile View (Hamburger Menu) */
+@media (max-width: 768px) {
+  .navbar-top {
+    flex-direction: column;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1;
+    align-items: flex-end;
+    opacity: 0;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    opacity: 1;
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-hamburger .bar {
+    height: 4px;
+    background-color: white;
+    width: 100%;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Active Hamburger Animation */
+  .navbar-hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar-hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+/* Slide-in animation for the links */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation for the logo */
+@keyframes fadeInLogo {
+  100% {
+    opacity: 1;
+  }
+}

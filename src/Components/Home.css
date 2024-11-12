@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 128, 0.7)),
+    url('../Photos/home-background.jpeg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  color: #ffffff;
+  min-height: 100vh; /* Ensure body takes at least full height */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Splash Screen */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 2s ease-in-out forwards;
+}
+
+.splash-screen .logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-top: 20px;
+}
+
+/* Image Slider */
+.image-slider {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main Content */
+.main-content {
+  text-align: center;
+  padding: 50px 20px;
+  color: #ffffff;
+}
+
+.home-header {
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.intro {
+  margin-top: 50px;
+}
+
+.intro-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.intro-description {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.cta {
+  margin-top: 50px;
+}
+
+.cta-button {
+  background: #ffb400;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #e69400;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Styles */
+
+/* Small Devices (Phones) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  .intro-title {
+    font-size: 2rem;
+  }
+  .intro-description {
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  .image-slider {
+    height: 300px;
+  }
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  .intro-title {
+    font-size: 2.2rem;
+  }
+  .intro-description {
+    font-size: 1.1rem;
+    margin: 0 20px;
+  }
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+  .image-slider {
+    height: 350px;
+  }
+  .loading-spinner {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3.5rem;
+  }
+  .subtitle {
+    font-size: 1.6rem;
+  }
+  .intro-title {
+    font-size: 2.7rem;
+  }
+  .intro-description {
+    font-size: 1.3rem;
+    margin: 0 auto;
+  }
+  .cta-button {
+    padding: 18px 35px;
+    font-size: 1.3rem;
+  }
+  .image-slider {
+    height: 500px;
+  }
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Very Large Devices (Large Desktops) */
+@media (min-width: 1280px) {
+  .title {
+    font-size: 4rem;
+  }
+  .subtitle {
+    font-size: 1.8rem;
+  }
+  .intro-title {
+    font-size: 3rem;
+  }
+  .intro-description {
+    font-size: 1.4rem;
+    max-width: 1000px;
+  }
+  .cta-button {
+    padding: 20px 40px;
+    font-size: 1.4rem;
+  }
+  .image-slider {
+    height: 600px;
+  }
+  .loading-spinner {
+    width: 60px;
+    height: 60px;
+  }
+}
