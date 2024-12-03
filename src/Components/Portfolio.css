@@ -1,22 +1,364 @@
+/* Global Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  line-height: 1.6;
+}
+
 .portfolio {
-    text-align: center;
-    padding: 2rem;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.hero-section button {
+  background-color: white;
+  color: #2575fc;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.hero-section button:hover {
+  background-color: #f3f3f3;
+}
+
+/* Section Styles */
+.portfolio-section {
+  padding: 4rem 2rem;
+  background-color: white;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.portfolio-section h2::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #6a11cb;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Carousel Styles */
+.portfolio-carousel {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+.carousel-item img {
+  max-width: 90%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0 auto;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+}
+
+.carousel-item video {
+  width: 100%; /* Adjust width as needed */
+  height: 20rem;
+  aspect-ratio: 1 / 1 ; /* Ensure height equals width for 1:1 aspect ratio */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item video:hover {
+  transform: scale(1.05);
+}
+
+.carousel-item p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Graphic Designing Section */
+.creative-portfolio h3 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin: 2rem 0 1.5rem;
+  position: relative;
+  letter-spacing: 1.2px;
+}
+
+.creative-portfolio h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #ff9966;
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+/* Responsive Carousel for Grid-Like Appearance */
+.carousel .control-arrow,
+.carousel.carousel-slider .control-arrow {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel .control-dots {
+  margin: 20px 0;
+}
+
+.carousel .control-dots .dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background: #ccc;
+  border-radius: 50%;
+}
+
+.carousel .control-dots .dot.selected {
+  background: #2575fc;
+}
+
+.carousel .slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 300px;
+  margin: auto;
+}
+
+/* Adjust for Two Items Per Row */
+.carousel .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .slide img {
+  width: 45%;
+  margin: 0 2.5%;
+}
+
+/* Video Grid */
+
+
+
+.creative-portfolio .video-item {
+  width: 400px; /* Adjust width as needed */
+  height: 200px; /* Ensure height equals width for 1:1 aspect ratio */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.creative-portfolio .video-item video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Ensures the video covers the container */
+  width: 100%; /* Makes the video fill the width */
+  height: 100%; /* Ensures the video fills the height to maintain the 1:1 aspect ratio */
+  transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+/* Row Styling for Carousels */
+.carousel-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensure responsiveness for smaller screens */
+  margin-bottom: 3rem;
+}
+
+.carousel-container {
+  flex: 1 1 calc(50% - 2rem); /* Each container takes half the row width */
+  max-width: 600px; /* Optional: Add a max width for better alignment */
+  text-align: center;
+}
+
+.carousel-container h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.carousel-container h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #ff9966;
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+.portfolio-carousel {
+  width: 100%;
+}
+
+.carousel-item img {
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  .carousel-row {
+    flex-direction: column; /* Stack carousels vertically on small screens */
   }
-  
-  .portfolio-items {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+
+  .carousel-container {
+    flex: 1 1 100%; /* Each container takes full width */
   }
-  
-  .portfolio-item {
-    background-color: #f4f4f4;
-    padding: 1rem;
-    border-radius: 8px;
-    width: 30%;
+}
+
+.digital-marketing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Digital Marketing Card Styling */
+
+/* Digital Marketing Section */
+.digital-marketing-section {
+  background-color: #f9f9f9;
+  padding: 4rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.digital-marketing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.marketing-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.marketing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.marketing-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.marketing-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.marketing-card h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #6a11cb;
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+.marketing-card p {
+  font-size: 1rem;
+  color: #555;
+  padding: 0 1rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .digital-marketing-grid {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
   }
-  
-  .portfolio-item h2 {
-    margin: 0;
-  }
-  
+}
+
+

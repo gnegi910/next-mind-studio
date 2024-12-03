@@ -1,19 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 128, 0.7)),
-    url('../Photos/home-background.jpeg'); /* Path to your background image */
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-  color: #ffffff;
-  min-height: 100vh; /* Ensure body takes at least full height */
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
 /* Splash Screen */
 .splash-screen {
   position: fixed;
@@ -47,33 +31,123 @@ body {
 }
 
 /* Image Slider */
-.image-slider {
-  width: 100%;
-  height: 500px;
-  margin-bottom: 30px;
-  overflow: hidden;
-  position: relative;
-}
-
-.slider-image-container {
-  width: 100%;
-  height: 100%;
+/* Enhanced Horizontal Slider Section */
+/* Horizontal Slider: 2 Photos Per Page */
+.horizontal-slider {
+  margin-top: 50px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Ensures only two images are visible */
+  padding: 20px;
+  background: linear-gradient(135deg, #283048, #859398);
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.slider-image {
+.slider-container {
+  display: flex;
+  gap: 15px; /* Space between images */
+  transition: transform 0.5s ease-in-out;
+  will-change: transform; /* Optimize for performance */
+}
+
+.slider-image-container-horizontal {
+  flex: 0 0 calc(50% - 15px); /* Ensures 2 items fit perfectly in the container */
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-image-container-horizontal:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.slider-image-horizontal {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain cover;
 }
+
+/* Navigation Arrows */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #283048;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slider-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.slider-button.left {
+  left: 10px;
+}
+
+.slider-button.right {
+  right: 10px;
+}
+
+.slider-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .slider-image-container-horizontal {
+    flex: 0 0 calc(50% - 10px);
+    height: 200px;
+  }
+
+  .slider-button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
 
 /* Main Content */
 .main-content {
+    margin: 0;
+    padding: 0;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 128, 0.7)),
+      url("../Photos/home-background.jpeg"); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    color: #ffffff;
+    min-height: 100vh; /* Ensure body takes at least full height */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
   text-align: center;
   padding: 50px 20px;
   color: #ffffff;
+  margin-top: 100px;
 }
 
 .home-header {
@@ -81,31 +155,15 @@ body {
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .subtitle {
   font-size: 1.5rem;
-  margin-top: 10px;
   line-height: 1.5;
 }
 
-.intro {
-  margin-top: 50px;
-}
-
-.intro-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.intro-description {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
 
 .cta {
   margin-top: 50px;
@@ -113,8 +171,8 @@ body {
 
 .cta-button {
   background: #ffb400;
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  padding: 5px 10px;
+  font-size: 1rem;
   border: none;
   border-radius: 50px;
   cursor: pointer;
