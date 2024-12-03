@@ -105,12 +105,17 @@ footer {
     gap: 15px;
     grid-template-columns: repeat(2, 1fr); /* This creates two equal-width columns */
 }
-.footer-content .social-media{
+.social-media{
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(5, 1fr); /* This creates two equal-width columns */
 }
 
+.social-media a {
+    color: #cccccc;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
 
 .social-media a:hover {
     color: #f04f24;
@@ -119,7 +124,7 @@ footer {
 /* Bottom Copyright */
 .footer-bottom {
     border-top: 1px solid #333333;
-    
+    padding-top: 20px;
     font-size: 12px;
     color: #777777;
     text-align: center;

@@ -30,11 +30,11 @@ function Footer() {
             <p>+1 (226) 961-0325</p>
           </div>
           <div className="social-media">
-            <p><a href="#dribbble">Dribbble</a></p>
-            <p> <a href="#instagram">Instagram</a></p>
-            <p> <a href="#tiktok">TikTok</a></p>
-            <p><a href="#facebook">Facebook</a></p>
-            <p>   <a href="#linkedin">LinkedIn</a></p>
+            <a href="#dribbble">Dribbble</a>
+            <a href="#instagram">Instagram</a>
+            <a href="#tiktok">TikTok</a>
+            <a href="#facebook">Facebook</a>
+            <a href="#linkedin">LinkedIn</a>
           </div>
         </div>
       </div>

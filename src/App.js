@@ -7,8 +7,6 @@ import Portfolio from './Components/Portfolio';
 import AboutUs from './Components/AboutUs';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
-import Blogs from './Components/Blogs';
-import BlogPost from './Components/BlogPost';
 import './App.css';
 
 function App() {
@@ -21,13 +19,11 @@ function App() {
           <Route path="/Services" element={<Services />} />
           <Route path="/Portfolio" element={<Portfolio />} />
           <Route path="/About" element={<AboutUs />} />
-          <Route path="/Blogs" element={<Blogs />} />
           <Route path="/Contact" element={<Contact />} />
-          {/* Dynamic route for individual blog posts */}
-          <Route path="/blog/:id" element={<BlogPost />} />
         </Routes>
+ 
       </div>
-      <Footer />
+      <Footer/> 
     </Router>
   );
 }
