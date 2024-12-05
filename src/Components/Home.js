@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
+import React, { useEffect, useState, useRef } from 'react';
 import './Home.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
-// HD Images for the slider (replace these with your own images)
 const images = [
-  "https://source.unsplash.com/1600x900/?digital,technology",
-  "https://source.unsplash.com/1600x900/?marketing",
-  "https://source.unsplash.com/1600x900/?design",
-  "https://source.unsplash.com/1600x900/?business",
+  '/Photos/Banner.jpg',
+  '/Photos/Banner1.jpg',
+  '/Photos/Banner3.jpg',
+  '/Photos/logo.jpg',
 ];
 
 function Home() {
   const [showSplash, setShowSplash] = useState(true);
+  const sliderRef = useRef(null); // Reference to the slider container
 
   useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    fade: true,
-    cssEase: 'ease-in-out',
+  const scrollSlider = (direction) => {
+    const slider = sliderRef.current;
+    if (!slider) return; // If slider is not available, do nothing
+
+    const scrollAmount = slider.offsetWidth / 2; // Scroll half of the slider container
+    if (direction === 'left') {
+      slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else if (direction === 'right') {
+      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -41,35 +38,49 @@ function Home() {
         </div>
       ) : (
         <div className="main-content">
-          <Slider {...sliderSettings} className="image-slider">
-            {images.map((image, index) => (
-              <div key={index} className="slider-image-container">
-                <img src={image} alt={`Slide ${index + 1}`} className="slider-image" />
-              </div>
-            ))}
-          </Slider>
-
           <header className="home-header">
-            <h1 className="title">Welcome to NextMindStudio</h1>
+            <h1 className="title">
+              Innovate, Design, Deliver
+              <br />
+              <span style={{ color: 'red' }}>Beyond</span> the Ordinary
+            </h1>
             <p className="subtitle">
-              Your trusted partner for digital marketing, website designing, and graphic designing services.
+              Empowering Brands with Creative and Strategic Precision
+              <br />
+              Expert digital marketing, website designing, and graphic designing services.
             </p>
           </header>
-
-          <section className="intro">
-            <h2 className="intro-title">What We Do</h2>
-            <p className="intro-description">
-              We specialize in creating visually appealing and results-driven digital marketing campaigns,
-              professional websites, and stunning graphic designs to elevate your business.
-            </p>
-          </section>
-
           <section className="cta">
-            <button className="cta-button">Get Started</button>
+            <button className="cta-button">Book a Call</button>
           </section>
+          {/* Horizontal Slider */}
+          <div className="horizontal-slider">
+            <button
+              className="slider-button left"
+              onClick={() => scrollSlider('left')}
+            >
+              &#10094;
+            </button>
+            <div className="slider-container" ref={sliderRef}>
+              {images.map((image, index) => (
+                <div key={index} className="slider-image-container-horizontal">
+                  <img
+                    src={image}
+                    alt={`Slide ${index + 1}`}
+                    className="slider-image-horizontal"
+                  />
+                </div>
+              ))}
+            </div>
+            <button
+              className="slider-button right"
+              onClick={() => scrollSlider('right')}
+            >
+              &#10095;
+            </button>
+          </div>
         </div>
       )}
-      
     </div>
   );
 }
